@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
-    <h1>QR Code Generator</h1>
-    <form action="/generate_text_qr" method="POST">
+    <header>
+        <h1>QR Code Generator</h1>
+        <p class="project-description">This tool allows you to generate QR codes based on text, images, or live images. Customize colors and generate QR codes with ease.</p>
+    </header>
+
+    <!-- Form to generate QR from text -->
+    <form id="text-qr-form">
         <label for="text">Enter Text:</label>
         <input type="text" id="text" name="text" placeholder="Enter your text here" required>
         
@@ -21,16 +26,27 @@
         <button type="submit">Generate Text QR</button>
     </form>
 
+    <!-- Div for displaying the generated QR code -->
+    <div id="qr-code-container" style="display: none;">
+        <h3>Your Generated QR Code:</h3>
+        <img id="generated-qr" src="" alt="Generated QR Code" style="max-width: 200px; border: 3px solid #ff4757; border-radius: 10px;">
+    </div>
+
+    <!-- Form to generate QR from uploaded image -->
     <form action="/generate_image_qr" method="POST" enctype="multipart/form-data">
         <label for="image">Upload Image:</label>
         <input type="file" id="image" name="image" required>
         <button type="submit">Generate QR from Image</button>
     </form>
 
+    <!-- Form to generate QR from live image -->
     <form action="/generate_live_qr" method="POST">
         <button type="submit">Generate QR from Live Image</button>
     </form>
-
+    
+    <footer>
+        <p>&copy; 2024 Satyam Singhal. All Rights Reserved.</p>
+    </footer>
     <script src="/static/js/script.js"></script>
 </body>
 </html>

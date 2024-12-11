@@ -6,15 +6,31 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
 }
 
-h1 {
+header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    padding: 20px;
+    background: #2e2e40;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
     color: #ff4757;
+    margin: 0;
+}
+
+.project-description {
+    color: #f4f4f4;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 form {
@@ -58,18 +74,33 @@ button:hover {
     background: #ff6b81;
 }
 
+#qr-code-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
 img {
-    display: block;
-    margin: 20px auto;
     max-width: 100%;
     border: 3px solid #ff4757;
     border-radius: 10px;
 }
 
-a {
-    text-decoration: none;
-    color: #ff4757;
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #2e2e40;
+    color: #fff;
     text-align: center;
-    display: block;
-    margin-top: 20px;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+footer a {
+    color: #ff4757;
+    text-decoration: underline;
+}
+
+footer p {
+    margin: 0;
 }

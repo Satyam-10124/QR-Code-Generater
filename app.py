@@ -1,7 +1,7 @@
+from flask import Flask, request, render_template, jsonify
 import qrcode
-from flask import Flask, request, render_template
-import cv2
 import os
+import cv2
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -17,16 +17,22 @@ def index():
 # QR Code from Text
 @app.route('/generate_text_qr', methods=['POST'])
 def generate_text_qr():
-    text = request.form['text']
-    fill_color = request.form.get('fill_color', 'black')
-    back_color = request.form.get('back_color', 'white')
+    try:
+        data = request.get_json()  # Read JSON data
+        text = data.get('text')
+        fill_color = data.get('fill_color', 'black')
+        back_color = data.get('back_color', 'white')
 
-    qr = qrcode.QRCode()
-    qr.add_data(text)
-    qr.make(fit=True)
-    img = qr.make_image(fill_color=fill_color, back_color=back_color)
-    img.save('static/text_qr.png')
-    return render_template('result.html', qr_code='static/text_qr.png')
+        qr = qrcode.QRCode()
+        qr.add_data(text)
+        qr.make(fit=True)
+        img = qr.make_image(fill_color=fill_color, back_color=back_color)
+        img.save('static/text_qr.png')
+
+        return jsonify({"qr_code_image": 'static/text_qr.png'})  # Send image path in response
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
 
 # QR Code from Uploaded Image
 @app.route('/generate_image_qr', methods=['POST'])

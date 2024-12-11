@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Color QR Code Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/generate_qr">Generate QR Code</a></li>
+            <li><a href="/capture_qr">Capture QR Code</a></li>
+        </ul>
+        <button id="toggle-menu">☰</button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Custom Color QR Code Generator</h1>
+
+        <!-- Color Picker Section -->
+        <div class="color-picker">
+            <label for="fill_color">Fill Color:</label>
+            <input type="color" id="fill_color" name="fill_color" value="#000000">
+
+            <label for="back_color">Background Color:</label>
+            <input type="color" id="back_color" name="back_color" value="#ffffff">
+        </div>
+
+        <!-- QR Preview Section -->
+        <div id="qr-preview" class="qr-preview">
+            <p>Preview of your customized QR code will appear here!</p>
+        </div>
+
+        <!-- File Upload Section -->
+        <div class="file-upload">
+            <label for="file">Upload Image (optional):</label>
+            <input type="file" id="file" name="file">
+            <img id="uploaded-image-preview" style="display:none; width: 100%; max-width: 300px;" alt="Uploaded image preview">
+        </div>
+
+        <!-- Live Image Capture Section -->
+        <div class="live-capture">
+            <button id="capture-btn">Capture QR Code from Webcam</button>
+            <p id="capture-info">Click to capture QR code from your webcam.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 QR Code Generator. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
