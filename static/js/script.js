@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const generatedQrImage = document.getElementById('generated-qr');
 
                 if (data.qr_code_image) {
-                    generatedQrImage.src = data.qr_code_image; // Assume the backend returns the image URL or base64 string
+                    generatedQrImage.src = data.qr_code_image; // Assume the backend returns the image URL
                     qrCodeContainer.style.display = 'block'; // Show the QR code container
                 }
             })
