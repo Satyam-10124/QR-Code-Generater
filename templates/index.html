@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h1>QR Code Generator</h1>
+    <form action="/generate_text_qr" method="POST">
+        <label for="text">Enter Text:</label>
+        <input type="text" id="text" name="text" placeholder="Enter your text here" required>
+        
+        <label for="fill_color">Fill Color:</label>
+        <input type="color" id="fill_color" name="fill_color" value="#000000">
+        
+        <label for="back_color">Background Color:</label>
+        <input type="color" id="back_color" name="back_color" value="#FFFFFF">
+        
+        <button type="submit">Generate Text QR</button>
+    </form>
+
+    <form action="/generate_image_qr" method="POST" enctype="multipart/form-data">
+        <label for="image">Upload Image:</label>
+        <input type="file" id="image" name="image" required>
+        <button type="submit">Generate QR from Image</button>
+    </form>
+
+    <form action="/generate_live_qr" method="POST">
+        <button type="submit">Generate QR from Live Image</button>
+    </form>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
